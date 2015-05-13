@@ -3,14 +3,191 @@
 @import icons
 @import iframes
 
+html
+  box-sizing: border-box
 
-@media screen and (max-width : 480px)
-  .foo
-    width: 0
+*, *:before, *:after
+  box-sizing: inherit
+  margin: 0
+  padding: 0
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
-  .foo
-    width: 0
-  .icon
+body
+  background: #fafafa
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  color: #333
+  margin: 0
+  padding: 0
+
+#maps
+  background: #e4eef6
+  // width: 100%;
+  width: 100%
+  height: 100%
+  circle
+    cursor: pointer
+    fill: #2a1f1d
+    stroke: #2a1f1d
+    stroke-width: 0
+    transition: all 0.3s
+    &:hover
+      stroke-width: 5
+  g.usa, g.states
+    width: 100%
+    height: 100%
+  g.usa
+    path
+      // fill: #29ABE2;
+  g.states
+    path, polygon
+      // transition: all 0.1s;
+      opacity: 0
+      &:hover, &.hover, &.active
+        opacity: 1
+
+.svg-container
+  display: inline-block
+  position: relative
+  width: 100%
+  padding-bottom: 60%
+  vertical-align: middle
+  overflow: hidden
+
+.svg-content
+  display: inline-block
+  position: absolute
+  top: 0
+  left: 0
+
+$yellow: #ffc810
+$brown: #2a1f1d
+
+.title, .details
+  height: 38px
+  background: $brown
+  h2, h3
+    font-family: ProximaNovaCond
+    font-weight: normal
     display: inline-block
-    margin: 0 5px
+    text-transform: uppercase
+    margin: 0 0
+    padding: 0 0
+    letter-spacing: 1.5px
+  h2
+    font-size: 20px
+    color: $yellow
+    padding: 10px
+    margin-left: 5px
+  h3
+    font-size: 13px
+    color: #a4a0a0
+  h3.base
+    font-size: 15px
+    color: white
+
+.bottom
+  height: 280px
+  background: $brown
+  width: 100%
+  .details
+    position: relative
+    max-width: 210px
+    height: 280px
+    display: inline-block
+    // border: 1px solid white;
+    padding: 15px
+    h2, h3
+      display: block
+      margin: 0
+      padding: 0 0 10px
+    .description
+      font-size: 14px
+      line-height: 19px
+      color: #a4a0a0
+      font-family: Georgia
+      font-weight: normal
+  .gallery
+    height: 280px
+    width: 426px
+    float: right
+    img
+      width: 100%
+
+.dots
+  position: absolute
+  bottom: 15px
+  .dot
+    cursor: pointer
+    display: inline-block
+    width: 12px
+    height: 12px
+    border-radius: 6px
+    background: white
+    margin-right: 3px
+    &.active
+      background: $yellow
+
+// @font-face {
+//   font-family: 'ProximaNovaCond-Bold';src: url('http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-6e302c8978b1bd9d453fba318a1fa572.woff');
+// }
+// 
+// @font-face {
+//   font-family: 'ProximaNovaCond-Normal';src: url('http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-30ea31cbd1e9632c6002a58b4eeb233f.woff');
+// }
+
+@font-face
+  font-family: 'ProximaNovaCond'
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-136b8b50cabde19e5e8ab530f99e81ac.eot")
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-136b8b50cabde19e5e8ab530f99e81ac.eot?#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-30ea31cbd1e9632c6002a58b4eeb233f.woff") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormal-972dee448fc162e9c89cb9beaaaecbfb.ttf") format("truetype")
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'ProximaNovaCond'
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-c6b62bc44b0d3459f56ba92459c6c163.eot")
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-c6b62bc44b0d3459f56ba92459c6c163.eot?#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-174e83d6c5f650786cd413aa4276955d.woff") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondNormalItalic-2a4911a4114779c4fe31e01e55573dc4.ttf") format("truetype")
+  font-weight: normal
+  font-style: italic
+
+
+@font-face
+  font-family: 'ProximaNovaCond'
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-2f7537a1c2ebacfa4d9f42fa66f0ca68.eot")
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-2f7537a1c2ebacfa4d9f42fa66f0ca68.eot?#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-6e302c8978b1bd9d453fba318a1fa572.woff") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBold-e3a413a3f145ddf79ef77f8ce3b45201.ttf") format("truetype")
+  font-weight: bold
+  font-style: normal
+
+
+@font-face
+  font-family: 'ProximaNovaCond'
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-86767d54bb7b6f76568c3cdf7a11c7a9.eot")
+  src: url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-86767d54bb7b6f76568c3cdf7a11c7a9.eot?#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-926b0b499b8fa86bf8e9e61097c9c5b4.woff") format("woff"), url("http://x.kinja-static.com/assets/fonts/proxima/ProximaNovaCondBoldItalic-749708412f9df0bc77e7542423cafd26.ttf") format("truetype")
+  font-weight: bold
+  font-style: italic
+
+
+@font-face
+  font-family: 'KinjaIcons'
+  src: url("http://x.kinja-static.com/assets/fonts/kinjafont/kinjaicons-webfont-869ca5a720b5e5942684ff89d0454336.eot?032415")
+  src: url("http://x.kinja-static.com/assets/fonts/kinjafont/kinjaicons-webfont-869ca5a720b5e5942684ff89d0454336.eot?032415#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/kinjafont/kinjaicons-webfont-cbc52853807bd06365e9212c722af36d.svg?032415") format("svg"), url("http://x.kinja-static.com/assets/fonts/kinjafont/kinjaicons-webfont-994106f542b79f1597627d1e5fb46769.woff?032415") format("woff"), url("http://x.kinja-static.com/assets/fonts/kinjafont/kinjaicons-webfont-2b57fa8d4109aa3b93c6be69418fab81.ttf?032415") format("truetype")
+  font-weight: normal
+  font-style: normal
+
+
+.dropdown.button:after,.split.button span:after
+  font-family: 'KinjaIcons'
+
+@font-face
+  font-family: 'FranklinGothicMedium'
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-d32bea513a8903b55f2a03f1b7cec584.eot")
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-d32bea513a8903b55f2a03f1b7cec584.eot?#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-9f6b1bb4667f7803e52e1ecb779c66f4.svg#franklingothic_urwmedium") format("svg"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-medium-webfont-413a6d46d6e6a9f3153c98f9fd406e75.ttf") format("truetype")
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'FranklinGothicDemi'
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-c78bb345e4d9018967085cb24c017a0f.eot")
+  src: url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-c78bb345e4d9018967085cb24c017a0f.eot?#iefix") format("embedded-opentype"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-8b7e896f61c73f13ba5e9e175b2d9c7d.svg#franklingothic_urwdemi") format("svg"), url("http://x.kinja-static.com/assets/fonts/franklingothic/franklingothicurw-demi-webfont-0d0886196150c1feb1724e8dfe13c644.ttf") format("truetype")
+  font-weight: normal
+  font-style: normal
